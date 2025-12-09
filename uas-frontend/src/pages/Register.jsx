@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
-// GANTI DENGAN IMPORT GAMBAR LOKAL KAMU JIKA ADA
-// import registerImage from "../assets/register.png"; 
+import registerImage from "../assets/register.png"
 
 export default function Register() {
   const [role, setRole] = useState("buyer");
@@ -16,7 +14,7 @@ export default function Register() {
         <img 
             // Ganti src ini dengan variable import gambar kamu (registerImage)
             // Atau gunakan link unsplash ini sebagai placeholder
-            src="https://images.unsplash.com/photo-1600573472591-ee6bbf0b9218?q=80" 
+            src={registerImage} 
             alt="Modern House"
             className="w-full h-full object-cover"
         />
