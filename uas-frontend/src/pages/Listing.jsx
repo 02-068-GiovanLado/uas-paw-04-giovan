@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Heart, Bath, BedDouble, Square, BadgeCheck } from "lucide-react";
+import { Heart, Bath, BedDouble, Square } from "lucide-react";
 
 export default function Listing() {
   const [sort, setSort] = useState("newest");
 
-  // Dummy Property Data with status
   const properties = [
     {
       id: 1,
@@ -20,7 +19,7 @@ export default function Listing() {
     },
     {
       id: 2,
-      title: "Spacious Apartment with City View",
+      title: "Spacious Apartment with City",
       price: 25000000,
       img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80",
       location: "Sudirman, Jakarta Pusat",
@@ -77,8 +76,6 @@ export default function Listing() {
 
   return (
     <div className="bg-white pb-20 pt-6">
-
-      {/* MAIN CONTAINER */}
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
 
         {/* SIDEBAR FILTER */}
@@ -89,7 +86,6 @@ export default function Listing() {
 
           <div className="space-y-4">
 
-            {/* LOCATION */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Location
@@ -100,7 +96,6 @@ export default function Listing() {
               />
             </div>
 
-            {/* MIN PRICE */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Minimum Price
@@ -112,7 +107,6 @@ export default function Listing() {
               />
             </div>
 
-            {/* MAX PRICE */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Maximum Price
@@ -124,7 +118,6 @@ export default function Listing() {
               />
             </div>
 
-            {/* PROPERTY TYPE */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Property Type
@@ -136,7 +129,6 @@ export default function Listing() {
               </select>
             </div>
 
-            {/* BEDROOMS */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-1">
                 Bedrooms
@@ -204,22 +196,39 @@ export default function Listing() {
                 </div>
 
                 <div className="p-4">
-                  <h3 className="font-semibold text-lg text-slate-900">{p.title}</h3>
+                  <h3 className="font-semibold text-lg text-slate-900">
+                    {p.title}
+                  </h3>
                   <p className="text-gray-600 text-sm">{p.location}</p>
 
                   <p className="text-slate-900 font-bold mt-2">
                     Rp {p.price.toLocaleString("id-ID")}
                   </p>
 
-                  <div className="flex items-center justify-between mt-3 text-sm text-gray-600">
-                    <div className="flex items-center gap-1"><BedDouble size={16} /> {p.beds}</div>
-                    <div className="flex items-center gap-1"><Bath size={16} /> {p.baths}</div>
-                    <div className="flex items-center gap-1"><Square size={16} /> {p.area} m²</div>
+                  {/* SPECS (Fully aligned & clean) */}
+                  <div className="flex justify-between items-center mt-4 text-sm text-gray-600">
+
+                    <div className="flex items-center gap-2 min-w-[55px]">
+                      <BedDouble size={16} className="text-slate-700" />
+                      <span>{p.beds}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 min-w-[55px]">
+                      <Bath size={16} className="text-slate-700" />
+                      <span>{p.baths}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 min-w-[70px]">
+                      <Square size={16} className="text-slate-700" />
+                      <span>{p.area} m²</span>
+                    </div>
+
                   </div>
 
+                  {/* VIEW DETAILS BUTTON */}
                   <Link
                     to={`/property/${p.id}`}
-                    className="w-full mt-4 block text-center py-2 border border-gray-300 rounded-lg text-slate-800 hover:bg-gray-50"
+                    className="w-full mt-4 block text-center py-2 border border-gray-300 rounded-lg text-slate-800 hover:bg-gray-50 transition"
                   >
                     View Details
                   </Link>
@@ -235,6 +244,7 @@ export default function Listing() {
             <button className="px-4 py-2 border rounded-lg">3</button>
             <button className="px-4 py-2 border rounded-lg">Next →</button>
           </div>
+
         </div>
       </div>
     </div>
