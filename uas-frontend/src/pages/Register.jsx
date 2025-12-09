@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import registerImage from "../assets/register.png"
 
 export default function Register() {
   const [role, setRole] = useState("buyer");
@@ -12,12 +11,13 @@ export default function Register() {
       {/* LEFT SIDE - IMAGE */}
       <div className="hidden md:block relative h-screen sticky top-0">
         <img 
-            // Ganti src ini dengan variable import gambar kamu (registerImage)
-            // Atau gunakan link unsplash ini sebagai placeholder
-            src={registerImage} 
-            alt="Modern House"
+            // GAMBAR TERBARU: Modern Architecture House (High Quality)
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" 
+            alt="Modern House Architecture"
             className="w-full h-full object-cover"
         />
+        {/* Overlay tipis agar lebih elegan */}
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* RIGHT SIDE - FORM */}
@@ -52,7 +52,6 @@ export default function Register() {
                     className="w-full bg-gray-50 border border-gray-200 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-800 transition-colors placeholder-gray-400 pr-10"
                     placeholder="Enter your email address"
                 />
-                {/* Icon Envelope */}
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </div>

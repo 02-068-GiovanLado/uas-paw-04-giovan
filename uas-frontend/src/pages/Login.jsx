@@ -10,7 +10,6 @@ export default function Login() {
       {/* LEFT SIDE - BIG IMAGE */}
       <div className="hidden md:block relative">
         <img 
-            // GANTI SRC DENGAN LINK UNSPLASH INI
             src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
             alt="Luxury Home Interior"
             className="w-full h-full object-cover"
