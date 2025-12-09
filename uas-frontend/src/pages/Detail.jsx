@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { FiPhone, FiImage } from "react-icons/fi";
+import { Phone, Image as ImageIcon } from "lucide-react";
 
 export default function Detail() {
   const { id } = useParams();

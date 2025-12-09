@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-import loginImg from "../assets/login.png"; 
-
 export default function Login() {
   const [role, setRole] = useState("buyer");
   const [showPassword, setShowPassword] = useState(false);
@@ -12,10 +10,12 @@ export default function Login() {
       {/* LEFT SIDE - BIG IMAGE */}
       <div className="hidden md:block relative">
         <img 
-            src={loginImg}   
-            alt="Interior"
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
+            alt="Luxury Home Interior"
             className="w-full h-full object-cover"
         />
+        {/* Opsional: Overlay gelap tipis supaya teks lebih kontras jika mau ada teks di atas gambar */}
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* RIGHT SIDE - FORM */}
@@ -24,7 +24,6 @@ export default function Login() {
           
           {/* LOGO AREA */}
           <div className="flex flex-col items-center mb-8">
-            {/* Icon SVG Placeholder (Hand holding house) */}
             <div className="mb-2">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-800">
                     <path d="M3 21h18"/>
@@ -40,7 +39,7 @@ export default function Login() {
             <p className="text-gray-500">Silakan masuk ke akun Anda</p>
           </div>
 
-          {/* ROLE SELECTOR (Card Style) */}
+          {/* ROLE SELECTOR */}
           <div className="mb-6">
             <p className="mb-2 font-medium text-gray-700">I am a:</p>
             <div className="grid grid-cols-2 gap-4">
@@ -107,10 +106,8 @@ export default function Login() {
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                     {showPassword ? (
-                         // Icon Eye Off
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
                     ) : (
-                        // Icon Eye
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                     )}
                 </button>
