@@ -5,15 +5,15 @@ import Navbar from "./components/Navbar";
 function Layout() {
   const location = useLocation();
 
-  // Daftar halaman yang tidak menampilkan navbar
-  const hideNavbarPages = ["/login", "/register"];
+  // (Termasuk halaman dashboard agen karena dia punya sidebar sendiri)
+  const hideNavbarPages = ["/login", "/register", "/AgentDashboard"];
 
-  // Cek apakah halaman sekarang adalah halaman yang harus menyembunyikan navbar
+  // Cek apakah halaman sekarang ada di daftar hideNavbarPages
   const hideNavbar = hideNavbarPages.includes(location.pathname);
 
   return (
     <div className="font-sans min-h-screen bg-gray-50">
-      {/* Tampilkan navbar hanya jika bukan halaman login/register */}
+      {/* Navbar hanya muncul jika hideNavbar bernilai false */}
       {!hideNavbar && <Navbar />}
 
       {/* Semua halaman dari AppRouter */}
